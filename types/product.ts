@@ -5,5 +5,5 @@ export type Product = {
     qty: number,
     unit: string,
     isFresh: boolean,
-    expiredDate: Date
+    expiredDate: string
 };
