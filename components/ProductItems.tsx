@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Image } from 'lucide-react';
-import { Product } from '@/app/types/product';
+import { Product } from '@/types/product';
 
 interface ProductItemsProps {
     product: Product;
