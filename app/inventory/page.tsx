@@ -55,13 +55,13 @@ export default function Inventory() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex space-x-2 overflow-x-auto">
+        <div className="py-1 flex space-x-2 overflow-x-auto">
           {filterTabs.map((tab) => (
             <Badge
               key={tab.value}
               variant={selectedFilter === tab.value ? "default" : "secondary"}
               className={cn(
-                "flex-shrink-0 px-4 py-1 text-sm font-medium transition-colors cursor-pointer rounded-full",
+                "flex-shrink-0 px-4 py-2 text-sm font-medium transition-colors cursor-pointer rounded-full",
                 selectedFilter === tab.value
                   ? "bg-primary text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
