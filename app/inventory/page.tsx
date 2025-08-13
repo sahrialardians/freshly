@@ -61,7 +61,7 @@ export default function Inventory() {
               key={tab.value}
               variant={selectedFilter === tab.value ? "default" : "secondary"}
               className={cn(
-                "flex-shrink-0 text-sm font-medium transition-colors cursor-pointer rounded-full",
+                "flex-shrink-0 px-4 py-1 text-sm font-medium transition-colors cursor-pointer rounded-full",
                 selectedFilter === tab.value
                   ? "bg-primary text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
