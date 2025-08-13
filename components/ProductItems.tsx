@@ -2,8 +2,13 @@ import React from 'react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Image } from 'lucide-react';
+import { Product } from '@/types/product';
 
-export default function ProductItems({ product }) {
+interface ProductItemsProps {
+    product: Product;
+}
+
+export default function ProductItems({ product }: ProductItemsProps) {
     return (
         <Card className="p-3 border-0 relative z-10 cursor-pointer bg-white">
         <div className="flex items-center space-x-3">
@@ -22,7 +27,7 @@ export default function ProductItems({ product }) {
             <div className="flex items-center justify-start">
                 <p className="text-sm text-gray-500 capitalize">{product.category} -</p>
                 <p className="text-sm text-gray-500 ml-1">
-                {product.quantity} {product.unit}
+                {product.qty} {product.unit}
                 </p>
             </div>
 
