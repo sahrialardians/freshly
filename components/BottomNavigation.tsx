@@ -1,8 +1,15 @@
-import { BarChart, BarChart3, Home, Package, Plus, Settings, } from 'lucide-react';
+"use client"
+
+import { BarChart3, Home, Package, Plus, Settings, } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react'
+import { useState } from "react";
+import { Button } from './ui/button';
+import BottomSheet from './BottomSheet';
+import AddItemForm from './AddItemForm';
 
 export default function BottomNavigation() {
+    const [open, setOpen] = useState(false);
+
     return (
         <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-xl z-30">
             <div className="max-w-md mx-auto px-2">
@@ -23,10 +30,17 @@ export default function BottomNavigation() {
                 </Link>
 
                 {/* Center floating action button */}
-                <Link href="#"
-                    className="relative -top-0 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all duration-200 flex items-center justify-center">
+                <Button
+                    onClick={() => setOpen(true)}
+                    className="relative -top-0 w-12 h-12 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all duration-200 flex items-center justify-center"
+                    aria-label="Add New Product">
                     <Plus className="w-6 h-6" />
-                </Link>
+                </Button>
+
+                {/* Bottom Sheet */}
+                <BottomSheet open={open} onClose={() => setOpen(false)} title="Add New Item">
+                    <AddItemForm onDone={() => setOpen(false)} />
+                </BottomSheet>
 
                 {/* Last two nav items */}
                 <Link
