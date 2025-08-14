@@ -1,12 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import DateScrollPicker from "./DateScrollPicker";
 
 export default function AddItemForm({ onDone }: { onDone: () => void }) {
     const [step, setStep] = useState(1);
-    const [date, setDate] = useState<Date>(new Date());
-    const [isPickerOpen, setIsPickerOpen] = useState(false);
 
     return (
         <div>
