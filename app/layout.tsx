@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <main className="max-w-md mx-auto min-h-screen relative overflow-hidden">
           {/* Header */}
           <Header />
