@@ -21,13 +21,19 @@ export default function Inventory() {
   ];
 
   const data = [
-    { id: 1, name: "Sauce Teriyaki", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" },
-    { id: 2, name: "Sauce Tomato", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 July, 2025" },
-    { id: 3, name: "Sauce Tiram", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" },
-    { id: 4, name: "Sauce BBQ", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" },
-    { id: 5, name: "Fresh Milk", category: "Dairy", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 July, 2025" },
-    { id: 6, name: "Heavy Milk", category: "Dairy", qty: 1, unit: "liters", isFresh: true, expiredDate: "21 June, 2025" },
-    { id: 7, name: "Yogurt", category: "Dairy", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" }
+    { id: 1, name: "Sauce Teriyaki", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 2, name: "Sauce Tomato", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 3, name: "Sauce Tiram", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 4, name: "Sauce BBQ", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 5, name: "Fresh Milk", category: "Dairy", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 6, name: "Heavy Milk", category: "Dairy", qty: 1, unit: "liters", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 7, name: "Yogurt", category: "Dairy", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 8, name: "Orange Juice", category: "Drinks", qty: 1, unit: "bottles", isFresh: true, expiredDate: "22 October, 2025" },
+    { id: 9, name: "Butter", category: "Ingredients", qty: 470, unit: "grams", isFresh: false, expiredDate: "21 June, 2025" },
+    { id: 11, name: "Olive Oil", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 12, name: "Coconut Water", category: "Drinks", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 October, 2025" },
+    { id: 13, name: "Soy Sauce", category: "Ingredients", qty: 1, unit: "bottles", isFresh: false, expiredDate: "21 June, 2025" },
+    { id: 14, name: "Black Pepper", category: "Ingredients", qty: 100, unit: "grams", isFresh: true, expiredDate: "21 October, 2025" }
   ];
 
   const limit = 10;
