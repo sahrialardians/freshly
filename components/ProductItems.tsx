@@ -46,7 +46,7 @@ export default function ProductItems({ product }: ProductItemsProps) {
                 </div>
             </Card>
             <BottomSheet open={open} onClose={() => setOpen(false)} title="Product Detail">
-                <ProductDetail product={product} />
+                <ProductDetail key={product.id} product={product} />
             </BottomSheet>
         </>
     )
