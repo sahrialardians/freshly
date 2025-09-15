@@ -7,7 +7,7 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { IdCardIcon, CircleCheckBig, ImageIcon, Package, Calendar, Layers } from "lucide-react";
 
 interface Product {
-    id: string;
+    id: number;
     name: string;
     category: string;
     qty: number;
@@ -55,10 +55,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     </p>
                 </div>
             </div>
-            <Button
-                className="px-4 py-6 mt-8 w-full rounded-xl bg-green-500 hover:bg-green-500 font-semibold text-white">
-                Product is Fresh!
-            </Button>
         </div>
         </>
     );
