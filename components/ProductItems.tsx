@@ -6,7 +6,6 @@ import { Badge } from './ui/badge';
 import { Image, Plus } from 'lucide-react';
 import { Product } from '@/types/product';
 import BottomSheet from './BottomSheet';
-import AddItemForm from './AddItemForm';
 import ProductDetail from './ProductDetail';
 
 interface ProductItemsProps {
