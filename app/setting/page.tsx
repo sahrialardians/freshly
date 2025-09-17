@@ -1,9 +1,15 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowUpRight, Settings2, InfoIcon, FileEdit, BookAlert, UserPen } from "lucide-react"
 import { SettingItem } from "@/components/SettingItem"
+import { Button } from "@/components/ui/button"
+import { SignOutButton, useUser } from "@clerk/nextjs"
 
 export default function Settings() {
+  const { user } = useUser()
+
   const settingItems = [
     { 
       id: 1, 
@@ -42,13 +48,13 @@ export default function Settings() {
       {/* Profile */}
       <div className="flex flex-col items-center space-y-4 mt-6">
         <Avatar className="w-20 h-20 border-2">
-          <AvatarImage src="https://github.com/shadcn.png" alt="Profile" />
+          <AvatarImage src={user?.imageUrl} alt="Profile" />
           <AvatarFallback>SA</AvatarFallback>
         </Avatar>
         <div className="text-center">
-          <h2 className="text-lg font-semibold">Sahrial Ardians</h2>
+          <h2 className="text-lg font-semibold">{user?.firstName} {user?.lastName}</h2>
           <p className="text-sm text-muted-foreground">
-            sahrialardians@example.com
+            {user?.emailAddresses[0]?.emailAddress}
           </p>
         </div>
       </div>
@@ -69,7 +75,7 @@ export default function Settings() {
       </Card>
 
       {/* Setting List */}
-      <div className="bg-card rounded-xl border divide-y mb-22"> 
+      <div className="bg-card rounded-xl border divide-y mb-4"> 
         {settingItems.map((item) => (
           <SettingItem 
             key={item.id} 
@@ -77,6 +83,15 @@ export default function Settings() {
             title={item.title} 
             description={item.description} />
         ))}
+      </div>
+
+      {/* Sign Out Button */}
+      <div className="max-w-md mx-auto mb-18">
+        <SignOutButton>
+          <Button className="w-full border-1 bg-red-50 border-red-200 text-red-600 hover:bg-red-100 cursor-pointer py-6 rounded-xl">
+            Sign Out
+          </Button>
+        </SignOutButton>
       </div>
     </div>
   )
