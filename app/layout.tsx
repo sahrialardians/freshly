@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import BottomNavigation from "@/components/BottomNavigation";
+import NavigationWrapper from "@/components/NavigationWrapper";
+import HeaderWrapper from "@/components/HeaderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,19 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} suppressHydrationWarning`}>
-        <main className="max-w-md mx-auto min-h-screen relative overflow-hidden">
-          {/* Header */}
-          <Header />
-          
-          {/* Content */}
-          {children}
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} suppressHydrationWarning`}>
+          <main className="max-w-md mx-auto min-h-screen relative overflow-hidden">
+            {/* Header */}
+            <HeaderWrapper />
+            
+            {/* Content */}
+            {children}
 
-          {/* Bottom Navigation */}
-          <BottomNavigation />
-        </main>
-      </body>
-    </html>
+            {/* Bottom Navigation */}
+            <NavigationWrapper />
+          </main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
