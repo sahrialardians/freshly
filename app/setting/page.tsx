@@ -1,9 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ArrowUpRight, Settings2, InfoIcon, FileEdit, BookAlert, UserPen } from "lucide-react"
+import { ArrowUpRight, Settings2, InfoIcon, FileEdit, BookAlert, UserPen, CreditCard } from "lucide-react"
 import { SettingItem } from "@/components/SettingItem"
 import { Button } from "@/components/ui/button"
-import { SignedOut, RedirectToSignIn, SignOutButton  } from "@clerk/nextjs"
+import { SignOutButton  } from "@clerk/nextjs"
 import { checkUser } from "@/lib/checkUser"
 import { toCapitalize } from "@/lib/strings"
 
@@ -13,31 +13,37 @@ export default async function Settings() {
   const settingItems = [
     { 
       id: 1, 
-      icon: <UserPen className="w-5 h-5 text-primary" />, 
+      icon: <UserPen className="w-5 h-5" />, 
       title: "Profile", 
       description: "Manage your profile settings." 
     },
     { 
       id: 2, 
-      icon: <Settings2 className="w-5 h-5 text-primary" />, 
+      icon: <CreditCard className="w-5 h-5" />, 
+      title: "Billing", 
+      description: "Manage your billing information."
+    },
+    { 
+      id: 3, 
+      icon: <Settings2 className="w-5 h-5" />, 
       title: "Notifications", 
       description: "Customize your notification settings." 
     },
     { 
-      id: 3, 
-      icon: <FileEdit className="w-5 h-5 text-primary" />, 
+      id: 4, 
+      icon: <FileEdit className="w-5 h-5" />, 
       title: "Feedback", 
       description: "Give our app feedback." 
     },
     { 
-      id: 4, 
-      icon: <BookAlert className="w-5 h-5 text-primary" />, 
+      id: 5, 
+      icon: <BookAlert className="w-5 h-5" />, 
       title: "Support", 
       description: "Open your support ticket." 
     },
     { 
-      id: 5, 
-      icon: <InfoIcon className="w-5 h-5 text-primary" />, 
+      id: 6, 
+      icon: <InfoIcon className="w-5 h-5" />, 
       title: "About App", 
       description: "Learn more about our app." 
     },
