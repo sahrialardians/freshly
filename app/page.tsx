@@ -3,12 +3,9 @@
 import EmptyProduct from "@/components/EmptyProduct";
 import ProductItems from "@/components/ProductItems";
 import StatsOverview from "@/components/StatsOverview";
-import { RedirectToSignIn, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Home() {
-  const { isSignedIn } = useAuth()
-
   const data = [
     { id: 1, name: "Suace teriyaki", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" },
     { id: 2, name: "Sauce tomato", category: "Ingredients", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 Junly, 2025" },
@@ -18,12 +15,7 @@ export default function Home() {
     { id: 6, name: "Heavy Milk", category: "Dairy", qty: 1, unit: "liters", isFresh: true, expiredDate: "21 June, 2025" },
     { id: 7, name: "Yogurt", category: "Dairy", qty: 1, unit: "bottles", isFresh: true, expiredDate: "21 June, 2025" }
   ];
-
   const limit = 10;
-
-  if (!isSignedIn) {
-    return <RedirectToSignIn />
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
