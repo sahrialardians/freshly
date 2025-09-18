@@ -1,14 +1,14 @@
-"use client"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ArrowUpRight, Settings2, InfoIcon, FileEdit, BookAlert, UserPen } from "lucide-react"
 import { SettingItem } from "@/components/SettingItem"
 import { Button } from "@/components/ui/button"
-import { SignOutButton, useUser } from "@clerk/nextjs"
+import { SignedOut, RedirectToSignIn, SignOutButton  } from "@clerk/nextjs"
+import { checkUser } from "@/lib/checkUser"
+import { toCapitalize } from "@/lib/strings"
 
-export default function Settings() {
-  const { user } = useUser()
+export default async function Settings() {
+  const user  = await checkUser()
 
   const settingItems = [
     { 
@@ -48,13 +48,13 @@ export default function Settings() {
       {/* Profile */}
       <div className="flex flex-col items-center space-y-4 mt-6">
         <Avatar className="w-20 h-20 border-2">
-          <AvatarImage src={user?.imageUrl} alt="Profile" />
+          <AvatarImage src={user?.image_url} alt="Profile" />
           <AvatarFallback>SA</AvatarFallback>
         </Avatar>
         <div className="text-center">
-          <h2 className="text-lg font-semibold">{user?.firstName} {user?.lastName}</h2>
+          <h2 className="text-lg font-semibold">{user?.full_name}</h2>
           <p className="text-sm text-muted-foreground">
-            {user?.emailAddresses[0]?.emailAddress}
+            {user?.email}
           </p>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Settings() {
         <CardContent className="flex items-center justify-between py-2">
           <div>
             <h4 className="font-semibold flex items-center gap-1">
-              Free Plan
+              { toCapitalize(user?.subscription_type) } Plan
             </h4>
             <div className="flex items-center gap-1">
               <p className="text-sm text-muted-foreground">Upgrade your plan</p>
@@ -87,10 +87,11 @@ export default function Settings() {
 
       {/* Sign Out Button */}
       <div className="max-w-md mx-auto mb-18">
-        <SignOutButton>
+        <SignOutButton redirectUrl="/sign-in">
           <Button className="w-full border-1 bg-red-50 border-red-200 text-red-600 hover:bg-red-100 cursor-pointer py-6 rounded-xl">
             Sign Out
           </Button>
+          {/* <RedirectToSignIn /> */}
         </SignOutButton>
       </div>
     </div>
