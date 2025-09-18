@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Freshly - Inventory & Reminder Expiration Dates",
-  description: "Platform is managing inventory and reminder expiration dates",
+  title: "Freshly - Expiry Tracker App",
+  description: "Freshly makes it simple to manage your foods, drinks and ingredients on your kitchen and other items while reducing waste.",
 };
 
 export default function RootLayout({
