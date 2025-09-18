@@ -13,7 +13,21 @@ export const checkUser = async (): Promise<Profile | null> => {
     // Destructure response dari maybeSingle()
     const { data: existingUser, error: fetchError } = await supabase
       .from("profiles")
-      .select("*")
+      .select(`
+        id,
+        clerk_user_id,
+        full_name,
+        email,
+        subscription_type,
+        image_url,
+        subscriptions (
+          id,
+          plan,
+          status,
+          start_date,
+          end_date
+        )
+      `)
       .eq("clerk_user_id", user.id)
       .maybeSingle();
 
@@ -25,6 +39,7 @@ export const checkUser = async (): Promise<Profile | null> => {
 
     // Jika user sudah ada -> langsung return
     if (existingUser) {
+      console.log("User already exists in the database.", existingUser)
       return existingUser as Profile;
     }
 
